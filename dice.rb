@@ -16,11 +16,9 @@ get ("/dice/2/6") do
   second_dice = rand(1..6)
   sum = first_dice + second_dice
 
-  outcome = "You rolled a #{first_dice} and a #{second_dice} for a total of #{sum}"
+  @outcome = "You rolled a #{first_dice} and a #{second_dice} for a total of #{sum}"
 
-  "<h1>2d6</h1>
-   <p>#{first_dice}</p>
-   <p>#{second_dice}</p>"
+  erb(:two_six, { :layout => :wrapper })
 end
 
 get ("/dice/2/10") do
