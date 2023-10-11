@@ -18,16 +18,27 @@ get ("/dice/2/6") do
 
   @outcome = "You rolled a #{first_dice} and a #{second_dice} for a total of #{sum}"
 
-  erb(:two_six, { :layout => :wrapper })
+  erb(:two_six)
 end
 
 get ("/dice/2/10") do
-  first_dice = rand(1..10)
-  second_dice = rand(1..10)
-  
+  first_dice_10 = rand(1..10)
+  second_dice_10 = rand(1..10)
+  sum_10 = first_dice_10 + second_dice_10
 
-  outcome = "You rolled a #{first_dice} and a #{second_dice} for a total of #{sum}"
+  outcome = "You rolled a #{first_dice_10} and a #{second_dice_10} for a total of #{sum_10}"
 
-  "<h1>2d6</h1>
+  "<h1>2d10</h1>
    <p>#{outcome}</p>"
 end
+
+
+get("/dice/1/20") do
+  @dice_20 = rand(1..20)
+
+  @outcome = "You rolled a #{@dice_20}."
+
+  erb(:one_twenty)
+end
+
+
